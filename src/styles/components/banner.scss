@@ -1,0 +1,74 @@
+.Banner {
+  height: 50vh;
+  height: calc(var(--vh, 1vh) * 50);
+  background-color: $white;
+
+  .row {
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+      font-size: 2.2rem;
+      line-height: 2.2rem;
+      font-weight: 700;
+      // margin-top: 100px;
+      .Banner__line {
+        color: $white;
+        mix-blend-mode: difference;
+        &:first-child {
+          margin-bottom: 18px;
+        }
+      }
+      @include media("<=tablet") {
+        font-size: 1.8rem;
+        line-height: 1.8rem;
+        .Banner__line {
+          &:first-child {
+            margin-bottom: 14px;
+          }
+        }
+      }
+      @include media("<=phone") {
+        // margin-top: 80px;
+        font-size: 1.4rem;
+        line-height: 1.4rem;
+        .Banner__line {
+          &:first-child {
+            margin-bottom: 12px;
+          }
+        }
+      }
+    }
+    .Banner__Info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.1rem;
+
+      p {
+        font-weight: 400;
+        font-weight: 700;
+      }
+      span {
+        height: 28px;
+        width: 28px;
+        border: 1px solid $black;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.25s ease-in-out;
+        cursor: pointer;
+
+        svg {
+          height: 18px;
+        }
+      }
+      &:hover {
+        span {
+          color: $white;
+          background-color: $black;
+        }
+      }
+    }
+  }
+}
