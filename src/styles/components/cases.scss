@@ -1,0 +1,59 @@
+.Cases {
+  width: 100%;
+  position: relative;
+  height: 40vh;
+  height: calc(var(--vh, 1vh) * 50);
+  .row {
+    .Cases__Navigation {
+      position: absolute;
+      width: 100%;
+      bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 5;
+      padding: 20px;
+      box-sizing: border-box;
+      span {
+        height: 40px;
+        width: 40px;
+        border: 1px transparent $black;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.25s ease-in-out;
+        cursor: pointer;
+
+        svg {
+          height: 18px;
+          color: $white;
+        }
+      }
+    }
+    .Cases__Main {
+      width: 100vw;
+      display: flex;
+      .Cases__Single {
+        width: 33.33%;
+        display: flex;
+        position: relative;
+        .Cases__Info {
+          .Cases__Subtitle {
+          }
+          .Cases__Title {
+          }
+        }
+        .Cases__Img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          img {
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
