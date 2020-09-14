@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as RightArrow } from "../assets/svg/arrow-right.svg";
 
-function banner() {
+function Banner() {
   return (
     <div className="Banner">
       <div className="container">
@@ -11,8 +11,9 @@ function banner() {
             <div className="Banner__line">what we do</div>
           </h2>
           <div className="Banner__Info">
+            <p>More about us</p>
             <span>
-              More about us <RightArrow />
+              <RightArrow />
             </span>
           </div>
         </div>
@@ -21,4 +22,4 @@ function banner() {
   );
 }
 
-export default banner;
+export default Banner;
