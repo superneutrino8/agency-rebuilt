@@ -39,7 +39,7 @@ function Cases() {
           <div className="Cases__Main">
             {caseStudies.map((caseItem) => {
               return (
-                <div className="Cases__Single" key={caseItem.key}>
+                <div className="Cases__Single" key={caseItem.id}>
                   <div className="Cases__Info">
                     <p className="Cases__Subtitle">{caseItem.subtitle}</p>
                     <p className="Cases__Title">{caseItem.title}</p>
