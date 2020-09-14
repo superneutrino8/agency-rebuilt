@@ -4,6 +4,7 @@
   @include media("<=phone") {
     height: calc(var(--vh, 1vh) * 50);
   }
+  background-color: $white;
 
   .row {
     flex-direction: column;
@@ -14,6 +15,8 @@
       font-weight: 700;
       // margin-top: 100px;
       .Banner__line {
+        color: $white;
+        mix-blend-mode: difference;
         &:first-child {
           margin-bottom: 18px;
         }
@@ -43,6 +46,7 @@
       align-items: center;
       gap: 12px;
       font-size: 1.1rem;
+
       p {
         font-weight: 400;
         font-weight: 700;
@@ -55,8 +59,17 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: 0.25s ease-in-out;
+        cursor: pointer;
+
         svg {
           height: 18px;
+        }
+      }
+      &:hover {
+        span {
+          color: $white;
+          background-color: $black;
         }
       }
     }
