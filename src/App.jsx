@@ -11,14 +11,14 @@ function App() {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
-    gsap.to("body", 0, { css: { visibility: "visible" } });
+    gsap.to("body", { css: { visibility: "visible" } });
 
     // timeline - GSAP Animation
     let tl = gsap.timeline();
     tl.from(".Banner__line", {
       y: 100,
-      ease: "power4.out",
-      deplay: 1,
+      ease: "power3.out",
+      duration: 1,
       skewY: 7,
       stagger: {
         amount: 0.4,
@@ -26,6 +26,7 @@ function App() {
     })
       .to(".Overlay__Top-Single", {
         height: 0,
+        duration: 1.4,
         ease: "expo.inOut",
         stagger: {
           amount: 0.4,
@@ -35,10 +36,17 @@ function App() {
       .to(".Overlay__Bottom-Single", {
         width: 0,
         ease: "expo.inOut",
+        duration: 1.4,
         delay: -0.8,
         stagger: {
           amount: 0.4,
         },
+      })
+      .from(".Cases__Img", {
+        scale: 1.4,
+        ease: "expo.inOut",
+        duration: 1.4,
+        delay: -2,
       });
   }, []);
 
