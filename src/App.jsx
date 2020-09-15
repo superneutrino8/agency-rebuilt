@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Banner from "./components/banner";
 import Cases from "./components/cases";
 import Header from "./components/header";
+import Overlay from "./components/overlay";
 import "./styles/App.scss";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div className="App">
+      <Overlay />
       <Header />
       <Banner />
       <Cases />

@@ -1,0 +1,65 @@
+.Overlay {
+  .Overlay__Top {
+    height: 50vh;
+    width: 100%;
+    height: calc(var(--vh, 1vh) * 50);
+    position: absolute;
+    .Overlay__Top-Single {
+      position: absolute;
+      height: 100%;
+      width: 33.33%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 8;
+      background-color: $black;
+      @include media("<=tablet") {
+        width: 100vw;
+      }
+      &:nth-child(2) {
+        left: 33.333%;
+        @include media("<=tablet") {
+          display: none;
+        }
+      }
+      &:nth-child(3) {
+        left: 66.666%;
+        @include media("<=tablet") {
+          display: none;
+        }
+      }
+    }
+  }
+  .Overlay__Bottom {
+    height: 50vh;
+    width: 100%;
+    bottom: 0;
+    height: calc(var(--vh, 1vh) * 50);
+    position: absolute;
+    .Overlay__Bottom-Single {
+      position: absolute;
+      height: 100%;
+      width: 33.33%;
+      bottom: 0;
+      left: 0;
+      right: 66.666%;
+      z-index: 8;
+      background-color: $black;
+      @include media("<=tablet") {
+        width: 100vw;
+      }
+      &:nth-child(2) {
+        left: 33.333%;
+        @include media("<=tablet") {
+          display: none;
+        }
+      }
+      &:nth-child(3) {
+        left: 66.666%;
+        @include media("<=tablet") {
+          display: none;
+        }
+      }
+    }
+  }
+}
