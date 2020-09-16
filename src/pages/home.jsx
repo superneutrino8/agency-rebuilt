@@ -4,8 +4,9 @@ import Overlay from "../components/overlay";
 import Banner from "../components/banner";
 import Cases from "../components/cases";
 
-const IntroAnimtion = () => {
-  let tl = gsap.timeline();
+let tl = gsap.timeline();
+
+const IntroAnimtion = (AnimationStateChange) => {
   tl.from(".Banner__line", {
     y: 100,
     ease: "power3.out",
@@ -32,6 +33,7 @@ const IntroAnimtion = () => {
       stagger: {
         amount: 0.4,
       },
+      onComplete: AnimationStateChange,
     })
     .from(".Cases__Img", {
       scale: 1.4,
@@ -42,19 +44,23 @@ const IntroAnimtion = () => {
 };
 
 const Home = () => {
-  useEffect(() => {
-    // timeline - GSAP Animation
-    IntroAnimtion();
-  }, []);
-
   const [animationCompleted, setAnimationCompleted] = useState(false);
 
+  const AnimationStateChange = () => {
+    setAnimationCompleted(true);
+  };
+
+  useEffect(() => {
+    // timeline - GSAP Animation
+    IntroAnimtion(AnimationStateChange);
+  }, []);
+
   return (
-    <div className="App">
-      <Overlay />
+    <>
+      {animationCompleted === false ? <Overlay /> : ""}
       <Banner />
       <Cases />
-    </div>
+    </>
   );
 };
 
