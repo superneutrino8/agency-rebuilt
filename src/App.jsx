@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import { Route } from "react-router-dom";
 import Header from "./components/header";
@@ -16,26 +16,55 @@ const routes = [
   { route: "/contact", name: "Contact", Component: Contact },
 ];
 
+function debounce(fun, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fun.apply(this, arguments);
+    }, ms);
+  };
+}
+
 function App() {
+  const [dimension, setDimension] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
   useEffect(() => {
     let vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
     gsap.to("body", { css: { visibility: "visible" } });
+
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimension({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }, 1000);
+
+    window.addEventListener("resize", debouncedHandleResize);
+
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
   }, []);
 
   return (
     <div className="App">
       {/* <Header /> */}
-      <Navigation />
-      {/* <Header />
+      {/* <Navigation /> */}
+      <Header />
       {routes.map(({ route, Component }) => {
         return (
-          <Route path={route} exact>
+          <Route key={route} path={route} exact>
             <Component />
           </Route>
         );
-      })} */}
+      })}
     </div>
   );
 }
