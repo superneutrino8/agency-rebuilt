@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import { Switch, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "./components/header";
 import "./styles/App.scss";
 import Home from "./pages/home";
 import About from "./pages/about";
 import CaseStudies from "./pages/case-studies";
 import Contact from "./pages/contact";
+import Navigation from "./components/navigation";
 
 const routes = [
   { route: "/", name: "Home", Component: Home },
@@ -25,14 +26,15 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Navigation />
+      {/* <Header />
       {routes.map(({ route, Component }) => {
         return (
           <Route path={route} exact>
             <Component />
           </Route>
         );
-      })}
+      })} */}
     </div>
   );
 }
