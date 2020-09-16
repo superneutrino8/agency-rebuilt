@@ -26,6 +26,7 @@ function App() {
 
   return (
     <div className="App">
+      {/* <Header /> */}
       <Navigation />
       {/* <Header />
       {routes.map(({ route, Component }) => {
