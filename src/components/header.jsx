@@ -14,14 +14,20 @@ const Header = ({ history, dimension }) => {
     });
 
     if (MenuState) {
+      console.log("Change");
       t1.to(".Navigation", {
+        duration: 0,
         css: { display: "block" },
       })
-        .to("body", { css: { overflow: "hidden" } })
+        .to("body", {
+          css: { overflow: "hidden" },
+          duration: 0,
+        })
         .to(".App", {
           duration: 1,
+          // delay: -1,
           y: dimension.width <= 654 ? "70vh" : "50vh",
-          ease: "expo.inOut",
+          // ease: "expo.inOut",
         })
         .to(".nav__hamburger span", {
           duration: 1,
@@ -30,29 +36,33 @@ const Header = ({ history, dimension }) => {
           transformOrigin: "50% 0%",
           ease: "expo.inOut",
         })
-        .to(".nav__arrow #Path_1", {
+        .to("#Path_1", {
           delay: -0.6,
+          duration: 0.4,
           css: {
             strokeDasharray: 5,
             strokeDashoffset: 10,
           },
         })
-        .to(".nav__arrow #Path_2", {
+        .to("#Path_2", {
           delay: -0.6,
+          duration: 0.4,
           css: {
             strokeDashoffset: 10,
             strokeDasharray: 20,
           },
         })
-        .to(".nav__arrow #Line_1", {
+        .to("#Line_1", {
           delay: -0.6,
+          duration: 0.4,
           css: {
             strokeDashoffset: 40,
             strokeDasharray: 18,
           },
         })
-        .to(".nav__arrow #circle", {
+        .to("#circle", {
           delay: -0.8,
+          duration: 0.4,
           css: {
             strokeDashoffset: 0,
           },

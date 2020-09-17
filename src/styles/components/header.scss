@@ -22,26 +22,29 @@
     width: 25px;
     cursor: pointer;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     @include media("<=phone") {
       width: 20px;
     }
-    .nav__hamburger span {
-      background-color: #000;
-      display: block;
-      height: 2px;
-      width: 100%;
-      margin-bottom: 5px;
-      // display: none;
+    .nav__hamburger {
+      width: 25px;
+      span {
+        text-align: center;
+        margin-bottom: 0.3rem;
+        background: $black;
+        height: 2px;
+        width: 100%;
+        display: block;
+        // display: none;
+      }
     }
     .nav__arrow {
-      position: relative;
+      position: absolute;
       display: none;
       svg {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        right: -8px;
-        top: -30px;
+        width: 56px;
       }
     }
   }
