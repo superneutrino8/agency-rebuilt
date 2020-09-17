@@ -1,8 +1,7 @@
 .Navigation {
   background-color: $yellow;
   height: 50vh;
-  height: calc(var(--vh, 1vh) * 50);
-  width: 100vw;
+  width: 100%;
   position: fixed;
   display: none;
   top: 0;
