@@ -4,51 +4,40 @@ import gsap from "gsap";
 
 const t1 = gsap.timeline();
 
-const Header = ({ height }) => {
+const Header = ({ dimension }) => {
   const [MenuState, setMenuState] = useState(false);
 
   useEffect(() => {
     if (MenuState) {
-      t1.to(".nav__hamburger", {
-        duration: 0.2,
-        css: {
-          display: "none",
-        },
-      })
-        .from(".Navigation", {
-          css: {
-            display: "none",
-          },
-        })
-        .to(".Navigation", {
-          y: 0,
-          css: {
-            display: "block",
-          },
-        })
-        .to(".App", {
-          y: height <= "740" ? "70vh" : "50vh",
-        })
-        .to(".nav__arrow", {
-          duration: 0.2,
-          css: {
-            display: "block",
-          },
-        });
-    } else {
-      t1.to(".nav__arrow", {
-        duration: 0.2,
-        css: {
-          display: "none",
-        },
-      }).to(".nav__hamburger", {
-        duration: 0.2,
+      gsap.to(".Navigation", {
         css: {
           display: "block",
         },
       });
+      gsap.to("body", {
+        css: {
+          overflow: "hidden",
+        },
+      });
+      t1.to(".App", {
+        duration: 1,
+        y: dimension.width <= 654 ? "70vh" : dimension.width / 2,
+        ease: "expo.inOut",
+      }).to(".nav__hamburger span", {
+        duration: 1,
+        delay: -1,
+        scaleX: 0,
+        transformOrigin: "50% 0%",
+        ease: "expo.inOut",
+      });
+    } else {
+      t1.to(".App", {
+        duration: 1,
+        y: "0vh",
+        ease: "expo.inOut",
+      });
     }
-  }, [MenuState, height]);
+  }, [MenuState, dimension.width]);
 
   return (
     <div className="header">

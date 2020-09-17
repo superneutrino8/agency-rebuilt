@@ -66,3 +66,9 @@ body {
     height: 100%;
   }
 }
+
+.App {
+  z-index: 2;
+  transform: translateY(0);
+  position: relative;
+}
