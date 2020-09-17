@@ -26,15 +26,18 @@ const Header = ({ history, dimension }) => {
         .to(".App", {
           duration: 1,
           // delay: -1,
-          y: dimension.width <= 654 ? "70vh" : "50vh",
-          // ease: "expo.inOut",
+          y: dimension.width <= 654 ? "70vh" : window.innerHeight / 2,
+          ease: "expo.inOut",
         })
         .to(".nav__hamburger span", {
-          duration: 1,
+          duration: 0.6,
           delay: -1,
           scaleX: 0,
           transformOrigin: "50% 0%",
           ease: "expo.inOut",
+        })
+        .to(".nav__arrow", {
+          css: { display: "block" },
         })
         .to("#Path_1", {
           delay: -0.6,
@@ -62,13 +65,15 @@ const Header = ({ history, dimension }) => {
         })
         .to("#circle", {
           delay: -0.8,
-          duration: 0.4,
+          duration: 0.6,
           css: {
             strokeDashoffset: 0,
           },
           ease: "expo.inOut",
         })
         .to(".nav__arrow", {
+          delay: -0.8,
+          duration: 0.6,
           css: { display: "block" },
         });
     } else {
