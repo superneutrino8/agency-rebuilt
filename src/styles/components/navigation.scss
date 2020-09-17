@@ -1,11 +1,12 @@
 .Navigation {
   background-color: $yellow;
-  height: 100vh;
+  height: 50vh;
+  height: calc(var(--vh, 1vh) * 50);
   width: 100vw;
   position: fixed;
+  display: none;
   top: 0;
   left: 0;
-
   a {
     display: block;
     position: relative;
@@ -33,6 +34,7 @@
   }
 
   .Navigation__Columns {
+    margin-top: 14vh;
     height: 100%;
     width: 100%;
     display: flex;
@@ -40,8 +42,8 @@
       width: 45vw;
       .Navigation__ColumnTitle {
         font-weight: 700;
-        font-size: 1.2rem;
-        margin-bottom: 1.1rem;
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
       }
       .Navigation__Link a {
         display: block;
@@ -52,13 +54,12 @@
       .Navigation__List {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
         .Navigation__LinkGroup {
           .Navigation__LinkGroup--Title p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-weight: 700;
             margin: 0;
-            margin: 0.9rem 0;
+            margin: 0.5rem 0;
           }
           .Navigation__LinkGroup--Info p,
           .Navigation__LinkGroup--Info a {

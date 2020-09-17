@@ -34,7 +34,7 @@ function App() {
   });
 
   useEffect(() => {
-    let vh = window.innerHeight * 0.01;
+    let vh = dimension.height * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
 
     gsap.to("body", { css: { visibility: "visible" } });
@@ -51,21 +51,22 @@ function App() {
     return () => {
       window.removeEventListener("resize", debouncedHandleResize);
     };
-  }, []);
+  }, [dimension.height]);
 
   return (
-    <div className="App">
-      {/* <Header /> */}
-      {/* <Navigation /> */}
-      <Header />
-      {routes.map(({ route, Component }) => {
-        return (
-          <Route key={route} path={route} exact>
-            <Component />
-          </Route>
-        );
-      })}
-    </div>
+    <>
+      <Header dimension={dimension} />
+      <div className="App">
+        {routes.map(({ route, Component }) => {
+          return (
+            <Route key={route} path={route} exact>
+              <Component dimension={dimension} />
+            </Route>
+          );
+        })}
+      </div>
+      <Navigation />
+    </>
   );
 }
 

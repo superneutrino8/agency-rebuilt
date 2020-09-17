@@ -20,15 +20,27 @@
 
   .nav {
     width: 25px;
+    cursor: pointer;
     @include media("<=phone") {
       width: 20px;
     }
-    span {
+    .nav__hamburger span {
       background-color: #000;
       display: block;
       height: 2px;
       width: 100%;
       margin-bottom: 5px;
+      // display: none;
+    }
+    .nav__arrow {
+      position: relative;
+      display: none;
+      svg {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        right: 8px;
+      }
     }
   }
 }
