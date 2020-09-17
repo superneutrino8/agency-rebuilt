@@ -21,6 +21,7 @@
   .nav {
     width: 25px;
     cursor: pointer;
+    position: relative;
     @include media("<=phone") {
       width: 20px;
     }
@@ -38,8 +39,9 @@
       svg {
         width: 40px;
         height: 40px;
-        position: relative;
-        right: 8px;
+        position: absolute;
+        right: -8px;
+        top: -30px;
       }
     }
   }

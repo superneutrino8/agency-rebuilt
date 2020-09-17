@@ -1,50 +1,94 @@
 import React, { useState, useEffect } from "react";
+import { NavLink, withRouter } from "react-router-dom";
 import { ReactComponent as UpArrow } from "../assets/svg/up-arrow-circle.svg";
 import gsap from "gsap";
 
 const t1 = gsap.timeline();
 
-const Header = ({ dimension }) => {
+const Header = ({ history, dimension }) => {
   const [MenuState, setMenuState] = useState(false);
 
   useEffect(() => {
+    history.listen(() => {
+      setMenuState(false);
+    });
+
     if (MenuState) {
-      gsap.to(".Navigation", {
-        css: {
-          display: "block",
-        },
-      });
-      gsap.to("body", {
-        css: {
-          overflow: "hidden",
-        },
-      });
-      t1.to(".App", {
-        duration: 1,
-        y: dimension.width <= 654 ? "70vh" : dimension.width / 2,
-        ease: "expo.inOut",
-      }).to(".nav__hamburger span", {
-        duration: 1,
-        delay: -1,
-        scaleX: 0,
-        transformOrigin: "50% 0%",
-        ease: "expo.inOut",
-      });
+      t1.to(".Navigation", {
+        css: { display: "block" },
+      })
+        .to("body", { css: { overflow: "hidden" } })
+        .to(".App", {
+          duration: 1,
+          y: dimension.width <= 654 ? "70vh" : "50vh",
+          ease: "expo.inOut",
+        })
+        .to(".nav__hamburger span", {
+          duration: 1,
+          delay: -1,
+          scaleX: 0,
+          transformOrigin: "50% 0%",
+          ease: "expo.inOut",
+        })
+        .to(".nav__arrow #Path_1", {
+          delay: -0.6,
+          css: {
+            strokeDasharray: 5,
+            strokeDashoffset: 10,
+          },
+        })
+        .to(".nav__arrow #Path_2", {
+          delay: -0.6,
+          css: {
+            strokeDashoffset: 10,
+            strokeDasharray: 20,
+          },
+        })
+        .to(".nav__arrow #Line_1", {
+          delay: -0.6,
+          css: {
+            strokeDashoffset: 40,
+            strokeDasharray: 18,
+          },
+        })
+        .to(".nav__arrow #circle", {
+          delay: -0.8,
+          css: {
+            strokeDashoffset: 0,
+          },
+          ease: "expo.inOut",
+        })
+        .to(".nav__arrow", {
+          css: { display: "block" },
+        });
     } else {
       t1.to(".App", {
-        duration: 1,
         y: "0vh",
         ease: "expo.inOut",
-      });
+      })
+        .to(".nav__arrow", {
+          css: { display: "none" },
+        })
+        .to(".nav__hamburger span", {
+          scaleX: 1,
+          transformOrigin: "50% 0%",
+          ease: "expo.inOut",
+        })
+        .to("body", { css: { overflow: "auto" } })
+        .to(".Navigation", {
+          css: { display: "none" },
+        });
     }
-  }, [MenuState, dimension.width]);
+  }, [MenuState, dimension.width, history]);
 
   return (
     <div className="header">
       <div className="container">
         <div className="row v-center space-between">
           <div className="logo">
-            <a href="/">Agency</a>
+            <NavLink to="/" exact>
+              AGENCY
+            </NavLink>
           </div>
           <div className="nav" onClick={() => setMenuState(!MenuState)}>
             <div className="nav__hamburger">
@@ -61,4 +105,4 @@ const Header = ({ dimension }) => {
   );
 };
 
-export default Header;
+export default withRouter(Header);

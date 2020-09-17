@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { Route } from "react-router-dom";
 import Header from "./components/header";
 import "./styles/App.scss";
+
 import Home from "./pages/home";
 import About from "./pages/about";
 import CaseStudies from "./pages/case-studies";
@@ -51,7 +52,7 @@ function App() {
     return () => {
       window.removeEventListener("resize", debouncedHandleResize);
     };
-  }, [dimension.height]);
+  }, [dimension]);
 
   return (
     <>
