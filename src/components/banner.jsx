@@ -7,8 +7,8 @@ function Banner() {
       <div className="container">
         <div className="row">
           <h2>
-            <div className="Banner__line">Creating unique brands is</div>
-            <div className="Banner__line">what we do</div>
+            <div className="Banner__line"><span>Creating unique brands is</span></div>
+            <div className="Banner__line"><span>what we do</span></div>
           </h2>
           <div className="Banner__Info">
             <p>More about us</p>

@@ -1,0 +1,74 @@
+.Navigation {
+  background-color: $yellow;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  display: none;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    color: $black;
+    width: fit-content;
+    &:after {
+      content: "";
+      width: 0%;
+      height: 2px;
+      display: block;
+      background-color: $black;
+      position: absolute;
+      right: 0;
+      margin-top: 5px;
+      transition: 0.4s ease;
+    }
+    &:hover {
+      &:after {
+        width: 100%;
+        left: 0;
+        background: $black;
+      }
+    }
+  }
+
+  .Navigation__Columns {
+    margin-top: 14vh;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    .Navigation__Column {
+      width: 45vw;
+      .Navigation__ColumnTitle {
+        font-weight: 700;
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+      }
+      .Navigation__Link a {
+        display: block;
+        margin-top: 1.1rem;
+        margin-bottom: 1.8rem;
+        font-weight: 600;
+        font-size: 1.8rem;
+      }
+      .Navigation__List {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        .Navigation__LinkGroup {
+          .Navigation__LinkGroup--Title p {
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0;
+            margin: 0.5rem 0;
+          }
+          .Navigation__LinkGroup--Info p,
+          .Navigation__LinkGroup--Info a {
+            margin: 0;
+            margin-bottom: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+}

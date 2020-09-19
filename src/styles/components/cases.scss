@@ -47,6 +47,7 @@
         height: calc(var(--vh, 1vh) * 50);
         display: flex;
         position: relative;
+        overflow: hidden;
 
         .Cases__Info {
           z-index: 4;
@@ -80,6 +81,7 @@
             object-fit: cover;
             opacity: 0.5;
             transition: all 0.25s ease;
+            overflow: hidden;
           }
         }
 
